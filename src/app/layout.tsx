@@ -1,6 +1,3 @@
-Use this complete replacement:
-
-```ts
 import type { Metadata, Viewport } from "next";
 import ErrorBoundary from '@/components/ErrorBoundary';
 import "./globals.css";
@@ -50,19 +47,17 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { url: "/android-chrome-192x192.png", type: "image/png", sizes: "192x192" },
-      { url: "/android-chrome-512x512.png", type: "image/png", sizes: "512x512" },
+      { url: "/keltewe_icon_outline_neg.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico", type: "image/x-icon" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
+      { url: "/keltewe_icon_outline_neg.png", sizes: "180x180" },
     ],
     shortcut: "/favicon.ico",
     other: [
       {
         rel: "apple-touch-icon-precomposed",
-        url: "/apple-touch-icon.png",
+        url: "/keltewe_icon_outline_neg.png",
       },
     ],
   },
@@ -152,9 +147,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/keltewe_icon_outline_neg.png" />
+        <link rel="apple-touch-icon" href="/keltewe_icon_outline_neg.png" />
         <link rel="canonical" href={SITE_URL} />
         
         <script
@@ -170,4 +164,3 @@ export default function RootLayout({
     </html>
   );
 }
-```
