@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "KELTEWE — Geospatial Intelligence Platform",
     description: SITE_DESCRIPTION,
   },
