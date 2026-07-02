@@ -70,8 +70,8 @@ x-casaos:
     en_us: Geospatial intelligence platform
   title:
     en_us: KELTEWE
-  icon: https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/public/keltewe_icon_outline_neg.jpg
-  thumbnail: https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/public/keltewe_logo_bn_pos-2.jpg
+  icon: https://raw.githubusercontent.com/ntrepyd-one/keltewe/main/public/keltewe_icon_outline_neg.png
+  thumbnail: https://raw.githubusercontent.com/ntrepyd-one/keltewe/main/public/keltewe_logo_bn_pos-2.jpg
   screenshot_link:
     - https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/public/keltewe_logo_bn_pos-2.jpg
   scheme: http
