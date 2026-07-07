@@ -659,9 +659,9 @@ export default function Dashboard() {
               />
             </div>
 
-            {/* ── NTREPYD title — letter-by-letter stagger ── */}
+            {/* ── Keltewe title — letter-by-letter stagger ── */}
             <div className="flex items-center gap-[2px] mb-3 z-[2]">
-              {'NTREPYD'.split('').map((letter, i) => (
+              {'Keltewe'.split('').map((letter, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
@@ -684,7 +684,7 @@ export default function Dashboard() {
                 className="overflow-hidden whitespace-nowrap"
               >
                 <p className="text-[10px] md:text-[11px] font-mono tracking-[0.5em] text-[var(--gold-primary)]" style={{ opacity: 0.8 }}>
-                  DECISION ORCHESTRATION GRID
+                  SOVEREIGN AWARENESS
                 </p>
               </motion.div>
             </div>
@@ -829,13 +829,13 @@ export default function Dashboard() {
             <circle cx="28" cy="28" r="3" fill="#C9A646"/>
           </svg>
           <div className="flex flex-col items-start gap-0.5">
-            <h1 className="text-lg md:text-xl font-bold tracking-[0.4em] text-[#C9A646] font-mono">NTREPYD</h1>
-            <span className="text-[8px] md:text-[9px] font-mono tracking-[0.2em] opacity-80 uppercase text-[#C9A646]">DECISION ORCHESTRATION GRID</span>
+            <h1 className="text-lg md:text-xl font-bold tracking-[0.4em] text-[#C9A646] font-mono">Keltewe</h1>
+            <span className="text-[8px] md:text-[9px] font-mono tracking-[0.2em] opacity-80 uppercase text-[#C9A646]">SOVEREIGN AWARENESS</span>
           </div>
         </div>
         <div className="flex items-center gap-3 mt-1.5 pl-[44px] min-w-0 pr-4">
           <span className="text-[5px] md:text-[6px] text-[var(--text-muted)] font-mono tracking-[0.2em] md:tracking-[0.3em] uppercase opacity-40 truncate">
-            POWERED BY NTREPYD ORCHESTRATION ENGINE
+            POWERED BY KELTEWE SOVEREIGN AWARENESS ENGINE
           </span>
         </div>
       </motion.div>
