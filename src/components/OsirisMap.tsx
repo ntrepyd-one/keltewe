@@ -1268,7 +1268,7 @@ function OsirisMap({ data, activeLayers, onEntityClick, onMouseCoords, onRightCl
 
   useEffect(() => {
     if (!mapReady) return;
-    const items = data.news || [];
+    const items = [...(data.news || []), ...(data.news_chile_live || []), ...(data.news_bolivia || []), ...(data.news_peru || []), ...(data.news_argentina || [])];
     setGeo('sigint-news', activeLayers.news_intel && items.length > 0
       ? items.filter((n: any) => n.coords?.length === 2).map((n: any) => ({
           type: 'Feature',
