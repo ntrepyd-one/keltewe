@@ -348,6 +348,9 @@ export default function Dashboard() {
     fetchEndpoint('/api/earthquakes-chile', d => ({ earthquakes_chile: d.earthquakes }));
     fetchEndpoint('/api/earthquakes-bolivia', d => ({ earthquakes_bolivia: d.earthquakes }));
     fetchEndpoint('/api/news-chile-live', d => ({ news_chile_live: d.news }));
+    fetchEndpoint('/api/news-bolivia', d => ({ news_bolivia: d.news }));
+    fetchEndpoint('/api/news-peru', d => ({ news_peru: d.news }));
+    fetchEndpoint('/api/news-argentina', d => ({ news_argentina: d.news }));
     const marketTimer = setTimeout(() => fetchEndpoint('/api/markets', d => ({ markets: d })), 800);
 
     // Priority 2: Space Weather (needed for MarketsPanel)
