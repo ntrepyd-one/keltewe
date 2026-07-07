@@ -83,6 +83,7 @@ const LAYER_GROUPS = [
     fullLabel: 'THREATS & INTEL',
     icon: AlertTriangle,
     layers: [
+      { key: 'volcanes_chile', label: 'Volcanes Chile', icon: Flame, color: '#FF6D00', dataKey: 'volcanes_chile' },
       { key: 'infrastructure', label: 'Nuclear Facilities', dataKey: 'infrastructure' },
       { key: 'global_incidents', label: 'Global Incidents', dataKey: 'gdelt' },
       { key: 'gps_jamming', label: 'GPS Jamming', dataKey: 'gps_jamming' },

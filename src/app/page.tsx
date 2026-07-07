@@ -146,6 +146,7 @@ export default function Dashboard() {
     news_intel: true,
     earthquakes: true,
     fires: false,
+    volcanes_chile: false,
     weather: false,
     radiation: false,
     infrastructure: false,
@@ -421,6 +422,10 @@ export default function Dashboard() {
       layerFetchedRef.current.add('weather');
     }
     // Infrastructure
+    if (activeLayers.volcanes_chile && !layerFetchedRef.current.has('volcanes_chile')) {
+      fetchEndpoint('/api/volcanes-chile', d => ({ volcanes_chile: d.volcanes }));
+      layerFetchedRef.current.add('volcanes_chile');
+    }
     if (activeLayers.infrastructure && !layerFetchedRef.current.has('infrastructure')) {
       fetchEndpoint('/api/infrastructure', d => ({ infrastructure: d.infrastructure }));
       layerFetchedRef.current.add('infrastructure');

@@ -181,7 +181,7 @@ function OsirisMap({ data, activeLayers, onEntityClick, onMouseCoords, onRightCl
       createDot(map, 'dot-fire', isGhost ? phantomPurple : '#E65100', 10);
       createDot(map, 'dot-cctv', cameraColor, 10);
 
-      const sources = ['flights','military','jets','private-fl','satellites','earthquakes','gdelt','gps-jamming','day-night','cctv','fires','weather','infrastructure','maritime','maritime-choke','maritime-ships','live-news','sigint-news','conflict-zones', 'war-alerts-targets', 'war-alerts-lines', 'balloons', 'radiation', 'ip-sweep-devices', 'ip-sweep-pulse', 'ip-sweep-connections', 'scan-targets', 'sdk-entities', 'sdk-links', 'malware-nodes', 'network-mesh'];
+      const sources = ['flights','military','jets','private-fl','satellites','earthquakes','gdelt','gps-jamming','day-night','cctv','fires','weather','infrastructure','maritime','maritime-choke','maritime-ships','live-news','sigint-news','conflict-zones', 'war-alerts-targets', 'war-alerts-lines', 'balloons', 'radiation', 'ip-sweep-devices', 'ip-sweep-pulse', 'ip-sweep-connections', 'scan-targets', 'sdk-entities', 'sdk-links', 'malware-nodes', 'network-mesh', 'volcanes-chile'];
       sources.forEach(s => map.addSource(s, { type: 'geojson', data: EMPTY_FC }));
 
       // Warning icon generator (parameterized — eliminates 3x copy-paste)
@@ -341,6 +341,17 @@ function OsirisMap({ data, activeLayers, onEntityClick, onMouseCoords, onRightCl
         'circle-opacity': 0.75,
         'circle-stroke-width': 1.5, 'circle-stroke-color': ['case', ['in', 'SEISMIC RISK', ['get', 'status']], '#E65100', '#26A69A'], 'circle-stroke-opacity': 0.35,
       }});
+      map.addLayer({ id: 'volcanes-chile-glow', type: 'circle', source: 'volcanes-chile', paint: {
+        'circle-radius': 14, 'circle-color': ['get','color'], 'circle-opacity': 0.25, 'circle-blur': 1
+      }});
+      map.addLayer({ id: 'volcanes-chile-dot', type: 'circle', source: 'volcanes-chile', paint: {
+        'circle-radius': 7, 'circle-color': ['get','color'], 'circle-opacity': 0.9,
+        'circle-stroke-width': 1.5, 'circle-stroke-color': '#fff'
+      }});
+      map.addLayer({ id: 'volcanes-chile-label', type: 'symbol', source: 'volcanes-chile', minzoom: 4, layout: {
+        'text-field': ['get','name'], 'text-size': 10, 'text-offset': [0, 1.5], 'text-anchor': 'top'
+      }, paint: { 'text-color': '#FF6D00', 'text-halo-color': '#000', 'text-halo-width': 1 }});
+      
       map.addLayer({ id: 'infra-label', type: 'symbol', source: 'infrastructure', minzoom: 5, layout: {
         'text-field': ['get','name'], 'text-size': 9, 'text-font': ['Open Sans Regular'],
         'text-offset': [0, 2], 'text-max-width': 14, 'text-allow-overlap': false,
@@ -1112,6 +1123,17 @@ function OsirisMap({ data, activeLayers, onEntityClick, onMouseCoords, onRightCl
 
   useEffect(() => {
     if (!mapReady) return;
+    
+    // Volcanes Chile
+    if (data.volcanes_chile) {
+      const alertColor = (alert) => alert === 'red' ? '#FF1744' : alert === 'orange' ? '#FF6D00' : alert === 'yellow' ? '#FFD700' : '#00E676';
+      setGeo('volcanes-chile', activeLayers.volcanes_chile && data.volcanes_chile ? data.volcanes_chile.map((v) => ({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [v.lng, v.lat] },
+        properties: { name: v.name, alert: v.alert, altitude: v.altitude, region: v.region, color: alertColor(v.alert) }
+      })) : []);
+    }
+    
     setGeo('earthquakes', activeLayers.earthquakes && data.earthquakes ? data.earthquakes.map((eq: any) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [eq.lng, eq.lat] }, properties: { magnitude: eq.magnitude, place: eq.place } })) : []);
   }, [mapReady, data.earthquakes, activeLayers.earthquakes, setGeo]);
 
@@ -1302,6 +1324,7 @@ function OsirisMap({ data, activeLayers, onEntityClick, onMouseCoords, onRightCl
     setVis(['fires-heat'], activeLayers.fires);
     setVis(['weather-glow','weather-dots','weather-label'], activeLayers.weather);
     setVis(['infra-glow','infra-dots','infra-label'], activeLayers.infrastructure);
+    setVis(['volcanes-chile-glow','volcanes-chile-dot','volcanes-chile-label'], activeLayers.volcanes_chile);
     setVis(['maritime-glow','maritime-dots','maritime-label'], activeLayers.maritime);
     setVis(['choke-glow','choke-dots','choke-label'], activeLayers.maritime);
     setVis(['ship-dots','ship-label'], activeLayers.maritime);
