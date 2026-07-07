@@ -823,11 +823,7 @@ export default function Dashboard() {
       {/* ── HEADER ── */}
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 2.5 }} className={`absolute top-4 z-[200] pointer-events-none flex flex-col`} style={{ left: isMobile ? '24px' : '64px', right: '24px' }}>
         <div className="flex items-center gap-3 w-fit">
-          <svg viewBox="0 0 56 56" className="w-8 h-8 md:w-10 md:h-10 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="28,4 50,16 50,40 28,52 6,40 6,16" stroke="#C9A646" strokeWidth="2" fill="none"/>
-            <polygon points="28,16 40,22 40,34 28,40 16,34 16,22" stroke="#C9A646" strokeWidth="1.2" fill="rgba(201,166,70,0.12)"/>
-            <circle cx="28" cy="28" r="3" fill="#C9A646"/>
-          </svg>
+          <img src="/keltewe_icon_outline_neg.png" className="w-8 h-8 md:w-10 md:h-10 shrink-0" alt="Keltewe" />
           <div className="flex flex-col items-start gap-0.5">
             <h1 className="text-lg md:text-xl font-bold tracking-[0.4em] text-[#C9A646] font-mono">Keltewe</h1>
             <span className="text-[8px] md:text-[9px] font-mono tracking-[0.2em] opacity-80 uppercase text-[#C9A646]">SOVEREIGN AWARENESS</span>
