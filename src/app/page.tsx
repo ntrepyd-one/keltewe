@@ -344,6 +344,7 @@ export default function Dashboard() {
     const eqTransform = (data: any) => ({ earthquakes: (data.features || []).map((f: any) => ({ id: f.id, lat: f.geometry?.coordinates?.[1] || 0, lng: f.geometry?.coordinates?.[0] || 0, depth: f.geometry?.coordinates?.[2] || 0, magnitude: f.properties?.mag, place: f.properties?.place, time: f.properties?.time, url: f.properties?.url, tsunami: f.properties?.tsunami, type: f.properties?.type, felt: f.properties?.felt, alert: f.properties?.alert })) });
     fetchEndpoint(eqUrl, eqTransform);
     fetchEndpoint('/api/news');
+    fetchEndpoint('/api/news-chile', d => ({ news_chile: d.news }));
     fetchEndpoint('/api/earthquakes-chile', d => ({ earthquakes_chile: d.earthquakes }));
     const marketTimer = setTimeout(() => fetchEndpoint('/api/markets', d => ({ markets: d })), 800);
 
@@ -359,7 +360,8 @@ export default function Dashboard() {
     const intervals = [
       setInterval(() => fetchEndpoint(eqUrl, eqTransform), 900000),
       setInterval(() => fetchEndpoint('/api/earthquakes-chile', d => ({ earthquakes_chile: d.earthquakes })), 900000),  // 15 min (was 5)
-      setInterval(() => fetchEndpoint('/api/news'), 1800000),        // 30 min (was 10)
+      setInterval(() => fetchEndpoint('/api/news'), 1800000),
+      setInterval(() => fetchEndpoint('/api/news-chile', d => ({ news_chile: d.news })), 1800000),        // 30 min (was 10)
       setInterval(() => fetchEndpoint('/api/markets', d => ({ markets: d })), 900000), // 15 min (was 5)
     ];
     return () => {
