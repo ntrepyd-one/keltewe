@@ -2,25 +2,25 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   OSIRIS — Global Intelligence Platform Design System
-   Egyptian Mythology × Dark Ops × Glassmorphism
+   NTREPYD — Decision Orchestration Grid Design System
+   Navy × Gold × Glassmorphism
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --gold-rgb: 212, 175, 55;
+  --gold-rgb: 201, 166, 70;
   --cyan-rgb: 0, 229, 255;
   /* ── Core Palette ── */
-  --bg-void: #04040A;
-  --bg-primary: #06060C;
-  --bg-secondary: #0C0E1A;
-  --bg-tertiary: #121628;
-  --bg-panel: rgba(8, 10, 20, 0.88);
-  --bg-panel-solid: #0C0E1A;
+  --bg-void: #0A1628;
+  --bg-primary: #0A1628;
+  --bg-secondary: #0D1B2E;
+  --bg-tertiary: #112038;
+  --bg-panel: rgba(10, 22, 40, 0.92);
+  --bg-panel-solid: #0D1B2E;
 
-  /* ── Gold Accent (Eye of Horus) ── */
-  --gold-primary: #D4AF37;
-  --gold-light: #F0D060;
-  --gold-dim: #8B7325;
+  /* ── Gold Accent ── */
+  --gold-primary: #C9A646;
+  --gold-light: #E8C96A;
+  --gold-dim: #7A6228;
   --gold-glow: rgba(var(--gold-rgb), 0.3);
 
   /* ── Cyan Intel Stream ── */
@@ -49,7 +49,7 @@
   --text-secondary: #9B978E;
   --text-muted: #5C5A54;
   --text-heading: #F5F0E0;
-  --text-gold: #D4AF37;
+  --text-gold: #C9A646;
   --text-cyan: #00E5FF;
 
   /* ── Scrollbar ── */
@@ -68,9 +68,7 @@
   --edge-pad: 20px;
 }
 
-/* 🔥
-   THEME TRANSITION SYSTEM
-   🔥 */
+/* ── Theme Transition ── */
 * {
   transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
@@ -174,15 +172,15 @@ html, body {
   border-radius: 10px;
 }
 
-/* ── Osiris Gold Glow ── */
-.osiris-glow {
+/* ── Ntrepyd Gold Glow ── */
+.ntrepyd-glow {
   box-shadow:
     0 0 20px rgba(var(--gold-rgb), 0.12),
     0 0 60px rgba(var(--gold-rgb), 0.06),
     0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
-.osiris-glow-cyan {
+.ntrepyd-glow-cyan {
   box-shadow:
     0 0 20px rgba(var(--cyan-rgb), 0.1),
     0 0 60px rgba(var(--cyan-rgb), 0.05);
@@ -216,17 +214,17 @@ html, body {
 /* ═══════════════════════════════════════════════════════════════
    ANIMATIONS
    ═══════════════════════════════════════════════════════════════ */
-@keyframes osiris-pulse {
+@keyframes ntrepyd-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
 
-@keyframes osiris-scan {
+@keyframes ntrepyd-scan {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
 }
 
-@keyframes osiris-rotate {
+@keyframes ntrepyd-rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
@@ -246,7 +244,7 @@ html, body {
   50% { opacity: 0.6; }
 }
 
-.animate-osiris-pulse { animation: osiris-pulse 2s ease-in-out infinite; }
+.animate-ntrepyd-pulse { animation: ntrepyd-pulse 2s ease-in-out infinite; }
 .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 .animate-data-pulse { animation: data-pulse 2s ease-in-out infinite; }
 .animate-threat-flash { animation: threat-flash 1.5s ease-in-out infinite; }
@@ -296,7 +294,7 @@ html, body {
 /* ── Risk Badges ── */
 .risk-critical { color: #FF3D3D; text-shadow: 0 0 8px rgba(255, 61, 61, 0.5); }
 .risk-high { color: #FF9500; text-shadow: 0 0 8px rgba(255, 149, 0, 0.3); }
-.risk-medium { color: #D4AF37; }
+.risk-medium { color: #C9A646; }
 .risk-low { color: #00E676; }
 
 /* ── CRT Scanlines ── */
@@ -1308,14 +1306,6 @@ html, body {
   border: 2px solid var(--gold-primary);
   box-shadow: 0 0 30px rgba(var(--gold-rgb),0.4), 0 0 60px rgba(var(--gold-rgb),0.15), inset 0 0 20px rgba(var(--gold-rgb),0.2);
 }
-.splash-ring--core::after {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  border-radius: 50%;
-  background: var(--gold-primary);
-  opacity: 0.3;
-}
 
 .splash-scanline {
   position: absolute;
@@ -1388,7 +1378,7 @@ html, body {
 }
 .gotham-tag--critical { background: rgba(255,61,61,0.12); color: #FF3D3D; border-color: rgba(255,61,61,0.3); }
 .gotham-tag--high { background: rgba(255,149,0,0.12); color: #FF9500; border-color: rgba(255,149,0,0.3); }
-.gotham-tag--medium { background: rgba(var(--gold-rgb),0.12); color: #D4AF37; border-color: rgba(var(--gold-rgb),0.3); }
+.gotham-tag--medium { background: rgba(var(--gold-rgb),0.12); color: #C9A646; border-color: rgba(var(--gold-rgb),0.3); }
 .gotham-tag--low { background: rgba(0,230,118,0.12); color: #00E676; border-color: rgba(0,230,118,0.3); }
 .gotham-tag--info { background: rgba(var(--cyan-rgb),0.08); color: var(--cyan-primary); border-color: rgba(var(--cyan-rgb),0.2); }
 .gotham-tag--classified { background: rgba(var(--gold-rgb),0.08); color: var(--gold-primary); border-color: rgba(var(--gold-rgb),0.25); letter-spacing: 0.2em; }
