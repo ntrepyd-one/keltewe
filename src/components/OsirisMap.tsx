@@ -1134,7 +1134,7 @@ function OsirisMap({ data, activeLayers, onEntityClick, onMouseCoords, onRightCl
       })) : []);
     }
     
-    setGeo('earthquakes', activeLayers.earthquakes && data.earthquakes ? data.earthquakes.map((eq: any) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [eq.lng, eq.lat] }, properties: { magnitude: eq.magnitude, place: eq.place } })) : []);
+    const allEq = [...(data.earthquakes || []), ...(data.earthquakes_chile || []), ...(data.earthquakes_bolivia || [])]; setGeo('earthquakes', activeLayers.earthquakes && allEq.length ? allEq.map((eq: any) => ({ type:'Feature', geometry: { type: 'Point', coordinates: [eq.lng, eq.lat] }, properties: { magnitude: eq.magnitude, place: eq.place, region: eq.region } })) : []);
   }, [mapReady, data.earthquakes, activeLayers.earthquakes, setGeo]);
 
   useEffect(() => {
